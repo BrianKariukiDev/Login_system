@@ -13,12 +13,12 @@
         $mail->isSMTP();
         $mail->Host='smtp.gmail.com';
         $mail->SMTPAuth= true;
-        $mail->Username='brianke100@gmail.com';
-        $mail->Password='bcmbzpcftdduszfr';
+        $mail->Username='-----------';
+        $mail->Password='------------';
         $mail->SMTPSecure='ssl';
         $mail->Port=465;
 
-        $mail->setFrom('brianke100@gmail.com');
+        $mail->setFrom('-----------');
 
         $mail->addAddress($_SESSION['email']['email']);
 
