@@ -2,11 +2,11 @@
     include_once('Database/connection.php');
 
     if(isset($_POST['submit'])){
-        $username=filter_input($_POST['username'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $email=filter_input($_POST['email'],FILTER_VALIDATE_EMAIL);
-        $contact=filter_input($_POST['contact'],FILTER_VALIDATE_INT);
-        $passwd=filter_input($_POST['password'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $cfmpasswd=filter_input($_POST['confirmpassword'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $username=filter_var($_POST['username'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $email=filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
+        $contact=filter_var($_POST['contact'],FILTER_VALIDATE_INT);
+        $passwd=filter_var($_POST['password'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $cfmpasswd=filter_var($_POST['confirmpassword'],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(!$username){
             $_SESSION['error']="Username cannot be blank";
@@ -30,12 +30,20 @@
 
                 }else{
                     $hashedpassword=password_hash($passwd,PASSWORD_DEFAULT);
-                    $adduser="INSERT INTO users (username,email,contact,passwd) VALUES('$username','$email','$contact','$hashedpassword');
+                    $adduser="INSERT INTO users (username,email,contact,passwd) VALUES('$username','$email','$contact','$hashedpassword')";
 
                     mysqli_query($conn,$adduser);
-                }
+
+                    $_SESSION['success']="accont created successfully ,you can now login";
+                    header('location:'.'login.php');
+                
             }
             }
+        }
+
+        if($_SESSION['error']){
+            header('location:'.'create.php');
+            die();
         }
 
     }

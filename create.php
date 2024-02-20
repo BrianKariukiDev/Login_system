@@ -1,3 +1,7 @@
+<?php
+    include_once('Database/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,16 @@
 <body>
     <div class="main">
         <div class="loginform">
+
+        
+                 <?php if(isset($_SESSION['error'])):?>
+                    <div class="error">
+                        <?=$_SESSION['error'];
+                        unset($_SESSION['error']); ?> <br><br>
+                    </div><br><br>
+                <?php endif ?>
+
+
             <form action="createlogic.php" method="post">
                 <label for="usernamme">USERNAME:</label>
                 <input type="text" name="username"><br><br>

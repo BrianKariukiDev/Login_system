@@ -1,3 +1,6 @@
+<?php
+    include_once('Database/connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +14,28 @@
 <body>
     <div class="main">
         <div class="loginform">
-            <form action="">
+            <form action="loginlogic.php" method="post">
+                
+                <?php if(isset($_SESSION['success'])):?>
+                    <div class="success">
+                        <?=$_SESSION['success'];
+                        unset($_SESSION['success']); ?> <br><br>
+                    </div>
+                <?php endif ?>
+
+                <?php if(isset($_SESSION['error'])):?>
+                    <div class="error">
+                        <?=$_SESSION['error'];
+                        unset($_SESSION['error']); ?> <br><br>
+                    </div><br><br>
+                <?php endif ?>
+
+
                 <label for="usernamme">USERNAME:</label>
-                <input type="text"><br><br>
+                <input type="text" name="username"><br><br>
                 <label for="password">PASSWORD:</label>
-                <input type="password"><br>
-                <input type="submit" id="submit">
+                <input type="password" name="password"><br>
+                <input type="submit" id="submit" name="submit">
             </form>
 
             <div class="orpart">
