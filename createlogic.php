@@ -35,7 +35,8 @@
                     mysqli_query($conn,$adduser);
 
                     $_SESSION['success']="accont created successfully ,you can now login";
-                    header('location:'.'login.php');
+                    $_SESSION['email']=$_POST;
+                    header('location:'.'create_successemail.php');
                 
             }
             }
