@@ -1,0 +1,62 @@
+body{
+    background: url('img/loginimg.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main{
+    height: fit-content;
+    background: #fff;
+    width: fit-content;
+    height: 100%fit-content;
+    border-radius: 3%;
+    padding: 24px;
+    margin: auto;
+    margin-top: 30vh;
+}
+
+#submit{
+    background: rgb(14, 182, 14);
+    border-radius: 2px;
+    margin: auto;
+    display: block;
+    width: 70%;
+    margin-top: 1rem;
+}
+
+.otheroption{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orpart{
+    text-align: center;
+    font-size: 0.5rem;
+    margin: 2px;
+}
+
+.google,.github{
+    border: 2px solid rgb(14, 182, 14);
+    border-radius: 5px;
+}
+
+a{
+    color: rgb(14, 182, 14);
+}
+
+#submit,.google,.github,a{
+    cursor: pointer;
+}
+
+.error{
+    display: none;
+    background-color: red;
+    text-align: center;
+}
+
+.success{
+    display: none;
+    background-color: greenyellow;
+    text-align: center;
+}
